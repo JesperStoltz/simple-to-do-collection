@@ -1,0 +1,14 @@
+#ToDoList {
+    display: flex;
+    justify-content: center;
+}
+
+#ToDoList h2 {
+    margin: 10px;
+    text-align: -webkit-center;
+}
+
+#ToDoList_todos {
+    margin: 10px;
+    text-align: center;
+}

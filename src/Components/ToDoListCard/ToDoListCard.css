@@ -1,0 +1,60 @@
+.toDoListCard-container {
+    margin: 0px 10px 0px 10px;
+}
+
+.toDoListCard-remove {
+    color: red;
+    position: relative;
+    top: 11px;
+    left: 173px;
+    display: inline-block;
+    padding: 3px;
+    height: 12px;
+    width: 12px;
+    font-size: 14px;
+    text-align-last: center;
+}
+
+.toDoListCard-remove:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#ToDoLists a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #283e4a;
+}
+
+#ToDoLists a:visited {
+    color: #283e4a;
+}
+
+.toDoListCard {
+    border: 1px solid black;
+    height: 140px;
+    width: 166px;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: anywhere;
+    padding: 5px;
+}
+
+.toDoListCard:hover {
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: #283e4a;
+    transition-duration: 0.5s;
+}
+
+.toDoListCard-completedAll {
+    position: relative;
+    font-size: 40px;
+    top: -38px;
+    left: 156px;
+    color: green;
+    display: inline-block;
+}

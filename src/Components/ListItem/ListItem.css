@@ -1,0 +1,20 @@
+.listItem {
+    margin: 10px;
+}
+
+.listItem > hr {
+    width: 50vw;
+}
+
+.toDoListItem {
+    font-family: 'Roboto', sans-serif;
+}
+
+.toDoListItem:hover {
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    text-decoration-color: #283e4a;
+}

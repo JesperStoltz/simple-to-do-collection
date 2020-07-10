@@ -1,0 +1,36 @@
+.button {
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-text-blue {
+    color: blue;
+}
+
+.btn-text-red {
+    color: red;
+}
+
+.btn-text-standard {
+    color: #283e4a;
+}
+
+.btn-main-color-white {
+    background: white;
+}
+
+.btn-main-color-standard {
+    border: 2px solid #283e4a;
+    background: #f5f5f5;
+}
+
+
+.btn-text-standard:hover {
+    color: #f5f5f5;
+}
+
+.btn-main-color-standard:hover {
+    border: 2px solid #f5f5f5;
+    background: #283e4a;
+}

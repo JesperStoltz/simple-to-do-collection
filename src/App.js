@@ -1,24 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./Components/Header/Header";
+import Home from "./Components/Home/Home";
+import CreateToDoList from "./Components/CreateToDoList/CreateToDoList";
+import ToDoList from "./Components/ToDoList/ToDoList";
+import { todos$ } from "./Storage/Store/Store";
+import { updateToDos } from "./Storage/Store/Store";
+import ToDoListsData from "./Storage/Data/ToDoListsData";
 import './App.css';
 
-function App() {
+
+const App = () => {
+  const [allToDos, setAllToDos] = useState([]);
+  const [createPage, setCreatePage] = useState(false);
+
+  const updateCreatePage = (boolean) => {
+    setCreatePage(boolean)
+  }
+
+  useEffect(() => { //Just to set up some mock data on first load
+    if (allToDos.length > 4) {
+      updateToDos(ToDoListsData);
+      console.log(allToDos.length)
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    todos$.subscribe((allToDos) => {
+      setAllToDos(allToDos);
+    })
+  }, [allToDos]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="App">
+      <Router>
+        <Header createPage={createPage} updateCreatePage={updateCreatePage} />
+        <main>
+          <Switch>
+            <Route path="/createnewlist">
+              <CreateToDoList allToDos={allToDos} updateToDos={updateToDos} updateCreatePage={updateCreatePage} />
+            </Route>
+            <Route path="/selectedtodo">
+              <ToDoList allToDos={allToDos} updateToDos={updateToDos} />
+            </Route>
+            <Route path="/">
+              <Home allToDos={allToDos} updateToDos={updateToDos} />
+            </Route>
+          </Switch>
+        </main>
+      </Router>
     </div>
   );
 }
